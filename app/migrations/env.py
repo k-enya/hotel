@@ -7,7 +7,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
+#sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 
 from app.database import Base, DATABASE_URL
 from app.hotels.models import Hotels
