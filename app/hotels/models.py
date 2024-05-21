@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, JSON
-from sqlalchemy.orm import relationship
+from sqlalchemy import JSON
+from sqlalchemy.orm import relationship, Mapped, mapped_column
 
 from app.database import Base
 
@@ -7,13 +7,11 @@ from app.database import Base
 class Hotels(Base):
     __tablename__ = 'hotels'
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
-    location = Column(String, nullable=False)
-    services = Column(JSON)
-    rooms_quantity = Column(Integer, nullable=False)
-    image_id = Column(Integer)
-
-    rooms = relationship("Rooms", back_populates="hotel")
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str]
+    location: Mapped[str]
+    services: Mapped[list[str]] = mapped_column(JSON)
+    rooms_quantity: Mapped[int]
+    image_id: Mapped[int]
 
 
