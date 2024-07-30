@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, Query, Depends
 from datetime import date
 from pydantic import BaseModel
@@ -13,4 +14,7 @@ app = FastAPI()
 app.include_router(router_users)
 app.include_router(router_bookings)
 app.include_router(router_hotels)
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=8000, debug=True)
 
